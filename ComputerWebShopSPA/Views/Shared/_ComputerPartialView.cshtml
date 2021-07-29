@@ -1,0 +1,29 @@
+﻿@model Computer
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <a asp-controller="Computers" asp-action="Details" asp-route-id="@Model.Id">
+            <img src="@Model.ImageThumbnailUrl" alt="computer image" />
+        </a>
+        <div class="caption">
+            <h3><a asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a></h3>
+            <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+            <p>@Model.Description</p>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-controller="Computers" asp-action="Edit" asp-route-id="@Model.Id">|Edit|</a>
+                <a asp-controller="Computers" asp-action="DeleteRequest" asp-route-id="@Model.Id" style="margin-left: 10px">|Delete|</a>
+            }
+        </div>
+        <div><p class="btn">
+                 <a class="btn btn-primary" 
+                    asp-controller="ShoppingCart" 
+                    asp-action="AddToShoppingCart"
+                    asp-route-computerId="@Model.Id">Add to Cart</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr />

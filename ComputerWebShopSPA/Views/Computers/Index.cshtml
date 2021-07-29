@@ -1,0 +1,17 @@
+﻿@model ComputerViewModel
+
+<h2>@Model.CategoryName</h2>
+
+ @if (User.IsInRole("Admin"))
+ {
+    <a asp-action="Create" style="margin-right: 50px">|Create Computer|</a>
+    <br />
+ }
+
+ <hr />
+ <br />
+
+ @foreach (Computer computer in Model.ComputerList)
+ {
+     <partial name="_ComputerPartialView" model="computer" />
+ }

@@ -1,0 +1,34 @@
+﻿@model CategoryViewModel
+
+<h1>Categories</h1>
+
+<a asp-action="Create" style="margin-right: 50px">|Create Category|</a>
+<br />
+<br />
+<br />
+
+<table class="table table-bordered">
+    <thead>
+         <tr>
+             <th>Categories</th>
+             <th>Description</th>
+             <th>Action</th>
+         </tr>
+    </thead>
+    <tbody>
+        @foreach (Category category in Model.CategoryList)
+        {
+             <tr>
+                  <td>@category.Name</td>
+                  <td>@category.Description</td>     
+                  <td>
+                       <a asp-action="Edit" asp-route-id="@category.Id">|Edit|</a>
+                       <a asp-action="DeleteRequest" asp-route-id="@category.Id" style="margin-left: 10px">|Delete|</a>
+                  </td>
+             </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<a asp-action="Create" style="margin-right: 50px">|Create Category|</a>

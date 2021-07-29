@@ -1,0 +1,41 @@
+﻿@model OrderViewModel
+
+<h3>Thank you for your order</h3>
+
+<br />
+<br />
+<br />
+
+<h3>Your receipt</h3>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th class="text-right">Unit Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.ShoppingCartItems)
+        {
+        <tr>
+            <td class="text-center">@item.Computer.Name</td>
+            <td class="text-left">@item.Amount</td>
+            <td class="text-right">@item.Computer.Price.ToString("c")</td>
+            <td class="text-right">
+                @((item.Amount * item.Computer.Price).ToString("c"))
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Grand total</td>
+            <td class="text-right">@Model.TotalCost.ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>

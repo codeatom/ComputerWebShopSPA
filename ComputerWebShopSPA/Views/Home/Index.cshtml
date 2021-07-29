@@ -1,0 +1,14 @@
+﻿@model ComputerViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Computers on sale</h2>
+<br />
+<br />
+
+@foreach (Computer computer in Model.ComputerList)
+{
+    <partial name="_ComputerPartialView" model="computer" />
+}

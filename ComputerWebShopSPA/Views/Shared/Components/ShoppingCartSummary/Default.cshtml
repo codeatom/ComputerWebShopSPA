@@ -1,0 +1,12 @@
+﻿@model ShoppingCartViewModel
+
+@if(Model.ShoppingCart.ShoppingCartItems.Count > 0)
+{
+    <div style="margin-left: 100px; margin-top: 10px;">
+        <a asp-controller="ShoppingCart" asp-action="Index">
+           <p6>cart</p6>
+            @Model.ShoppingCart.ShoppingCartItems.Count
+        </a>
+    </div>
+
+}

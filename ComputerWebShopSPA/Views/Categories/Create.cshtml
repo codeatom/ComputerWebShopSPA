@@ -1,0 +1,26 @@
+﻿@model CreateCategory
+
+@{
+    ViewData["Title"] = "Add Category";
+}
+
+<h1>Add Category</h1>
+<br />
+
+
+<form asp-action="Create" asp-controller="Categories" method="post">
+    <label asp-for="Name" style="margin-left: 37px">Name</label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span><br /><br />
+
+    <label asp-for="Description" style="margin-left: 0px">Description</label>
+    <textarea asp-for="Description"></textarea>
+    <span asp-validation-for="Description"></span><br /><br />
+
+    <button style="margin-left: 85px">Create</button>
+    <button type="reset" style="margin-left: 15px">reset</button>
+</form>
+
+<br />
+
+<a asp-action="Index" asp-controller="Categories" style="margin-left: 80px">|Back|</a>

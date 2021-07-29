@@ -1,0 +1,20 @@
+﻿@model CategoryViewModel
+
+
+<h5><a asp-controller="Computers" asp-action="Index" asp-route-name="">All Computer</a></h5>
+
+<br>
+
+@foreach (Category category in Model.CategoryList)
+{
+    <h5><a asp-controller="Computers" asp-action="Index" asp-route-name="@category.Name">@category.Name</a></h5>
+    <br>
+}
+
+
+<br />
+<br />
+
+<h5><a asp-controller="Home" asp-action="Index" style="color: green">Computers on sale</a></h5>
+
+  

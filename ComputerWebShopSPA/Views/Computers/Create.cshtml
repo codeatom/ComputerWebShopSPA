@@ -1,0 +1,59 @@
+﻿@model CreateComputer
+
+@{
+    ViewData["Title"] = "Add Computer";
+}
+
+<h1>Add Computer</h1>
+<br />
+
+
+<form asp-action="Create" asp-controller="Computers" method="post">
+    <label asp-for="Name" style="margin-left: 37px">Name</label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span><br /><br />
+
+    <label asp-for="Description" style="margin-left: 0px">Description</label>
+    <textarea asp-for="Description"></textarea>
+    <span asp-validation-for="Description"></span><br /><br />
+
+    <label asp-for="Price" style="margin-left: 42px">Price</label>
+    <input asp-for="Price" />
+    <span asp-validation-for="Price"></span><br /><br />
+
+    <label asp-for="ImageUrl" style="margin-left: 0px">ImageUrl L</label>
+    <input asp-for="ImageUrl" />
+    <span asp-validation-for="ImageUrl"></span><br /><br />
+
+    <label asp-for="ImageThumbnailUrl" style="margin-left: 0px">ImageUrl S</label>
+    <input asp-for="ImageThumbnailUrl" />
+    <span asp-validation-for="ImageThumbnailUrl"></span><br /><br />
+
+    <label asp-for="CategoryId" style="margin-left: 15px">Category</label>
+    <select asp-for="CategoryId">
+        <option value="" disabled selected>Select a Category</option>
+        @if (Model.CategoryList.Count != 0)
+        {
+            @foreach (Category item in Model.CategoryList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        }
+    </select><br><br>
+    <span asp-validation-for="CategoryId"></span>
+
+    <label asp-for="ComputerSpecs" style="margin-left: 0px">ComputerSpecs</label>
+    <textarea asp-for="ComputerSpecs"></textarea>
+    <span asp-validation-for="Description"></span><br /><br />
+
+    <label asp-for="IsInStock" style="margin-left: 15px">IsInStock</label>
+    <input asp-for="IsInStock" />
+    <span asp-validation-for="IsInStock"></span><br />
+
+    <label asp-for="IsOnSale" style="margin-left: 15px">IsOnSale</label>
+    <input asp-for="IsOnSale" />
+    <span asp-validation-for="IsOnSale"></span><br /><br />
+
+    <button style="margin-left: 100px">Create</button>
+    <button type="reset" style="margin-left: 15px">reset</button>
+</form>

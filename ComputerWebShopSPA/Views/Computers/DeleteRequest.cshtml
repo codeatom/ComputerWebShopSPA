@@ -1,0 +1,10 @@
+﻿@model ComputerViewModel
+@{ ViewData["Title"] = "Remove category"; }
+
+
+@if (Model != null)
+{
+    <h3>Are you sure you want to delete the computer?</h3>
+    <a asp-controller="Computers" asp-action="Delete" asp-route-id="@Model.Computer.Id">|Delete|</a>
+    <a asp-controller="Computers" asp-action="Index" style="margin-left: 10px">|Back|</a>
+}

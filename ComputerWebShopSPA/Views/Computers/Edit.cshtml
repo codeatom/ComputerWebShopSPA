@@ -1,0 +1,53 @@
+﻿@model EditComputer
+@{ ViewData["Title"] = "Edit Computer"; }
+
+<h1>Edit</h1>
+
+
+<form asp-action="Edit" method="post">
+    <label asp-for="@Model.CreateComputer.Name" style="margin-left: 37px">Name</label>
+    <input asp-for="@Model.CreateComputer.Name" />
+    <span asp-validation-for="@Model.CreateComputer.Name"></span><br /><br />
+
+    <label asp-for="@Model.CreateComputer.Description" style="margin-left: 0px">Description</label>
+    <textarea asp-for="@Model.CreateComputer.Description"></textarea>
+    <span asp-validation-for="@Model.CreateComputer.Description"></span><br /><br />
+
+    <label asp-for="@Model.CreateComputer.Price" style="margin-left: 42px">Price</label>
+    <input asp-for="@Model.CreateComputer.Price" />
+    <span asp-validation-for="@Model.CreateComputer.Price"></span><br /><br />
+
+    <label asp-for="@Model.CreateComputer.ImageUrl" style="margin-left: 0px">ImageUrl L</label>
+    <input asp-for="@Model.CreateComputer.ImageUrl" />
+    <span asp-validation-for="@Model.CreateComputer.ImageUrl"></span><br /><br />
+
+    <label asp-for="@Model.CreateComputer.ImageThumbnailUrl" style="margin-left: 0px">ImageUrl S</label>
+    <input asp-for="@Model.CreateComputer.ImageThumbnailUrl" />
+    <span asp-validation-for="@Model.CreateComputer.ImageThumbnailUrl"></span><br /><br />
+
+    <label asp-for="@Model.CreateComputer.CategoryId" style="margin-left: 15px">Category</label>
+    <select asp-for="@Model.CreateComputer.CategoryId">
+        <option value="" disabled selected>Select a Category</option>
+        @foreach (Category item in Model.CategoryList)
+        {
+<option value="@item.Id">@item.Name</option>}
+    </select>
+    <span asp-validation-for="@Model.CreateComputer.IsInStock"></span>
+
+    <label asp-for="@Model.CreateComputer.ComputerSpecs" style="margin-left: 0px">ComputerSpecs</label>
+    <textarea asp-for="@Model.CreateComputer.ComputerSpecs"></textarea>
+    <span asp-validation-for="@Model.CreateComputer.ComputerSpecs"></span><br /><br />
+
+    <label asp-for="@Model.CreateComputer.IsInStock" style="margin-left: 15px">IsInStock</label>
+    <input asp-for="@Model.CreateComputer.IsInStock" />
+    <span asp-validation-for="@Model.CreateComputer.IsInStock"></span><br />
+
+    <label asp-for="@Model.CreateComputer.IsOnSale" style="margin-left: 15px">IsOnSale</label>
+    <input asp-for="@Model.CreateComputer.IsOnSale" />
+    <span asp-validation-for="@Model.CreateComputer.IsOnSale"></span><br /><br />
+
+    <button style="margin-left: 100px">Save changes</button>
+    <button type="reset" style="margin-left: 15px">reset</button>
+</form>
+
+<a asp-action="Index" style="margin-left: 10px">|Back|</a>
