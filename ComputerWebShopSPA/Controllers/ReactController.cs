@@ -33,48 +33,6 @@ namespace ComputerWebShopSPA.Controllers
             return Ok(_computerService.All_2().ComputerList);
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Computer> Get(int id)
-        {
-            Computer computer = _computerService.FindById(id);
-
-            if (computer == null)
-            {
-                return BadRequest();
-            }
-
-            return Ok(computer);
-        }
-
-        [HttpPost("/api/Computer")]
-        public ActionResult<Computer> Post([FromBody] CreateComputer newComputer)
-        {
-            if (ModelState.IsValid)
-            {
-                Computer computer = _computerService.Add(newComputer);
-
-                if (computer == null)
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError);
-                }
-
-                return Created("", computer);
-            }
-
-            return BadRequest(newComputer);
-        }
-
-        [HttpDelete("{id}")]
-        public void DeletePerson(int id)
-        {
-            if (!_computerService.Remove(id))
-            {
-                Response.StatusCode = 200;
-            }
-
-            Response.StatusCode = 400;
-        }
-
         [HttpGet("/api/Category")]
         public ActionResult<IEnumerable<Category>> GetCategory()
         {

@@ -71,7 +71,7 @@ namespace ComputerWebShopSPA
             });
 
             //------------------------- Swagger -----------------------------------------------------------
-            //services.AddSwaggerGen();
+            services.AddSwaggerGen();
 
             //------------------------- Context and Session ---------------------------------------------
             services.AddHttpContextAccessor();
@@ -98,11 +98,11 @@ namespace ComputerWebShopSPA
             app.UseStaticFiles();
             app.UseSession();
 
-            //app.UseSwagger();
+            app.UseSwagger();
 
             //app.UseSwaggerUI(c =>
             //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Persons API V1");
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Computers API V1");
             //});
 
             app.UseRouting();
