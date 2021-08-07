@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ComputerWebShopSPA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210729073821_InitialCreate")]
+    [Migration("20210807134040_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace ComputerWebShopSPA.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.Category", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,7 +40,7 @@ namespace ComputerWebShopSPA.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.Computer", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.Computer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,6 @@ namespace ComputerWebShopSPA.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ComputerSpecs")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -87,7 +86,7 @@ namespace ComputerWebShopSPA.Migrations
                     b.ToTable("Computers");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.IdentityAppUser", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.IdentityAppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -165,7 +164,7 @@ namespace ComputerWebShopSPA.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.Order", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -217,7 +216,7 @@ namespace ComputerWebShopSPA.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.OrderDetail", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -245,7 +244,7 @@ namespace ComputerWebShopSPA.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.ShoppingCartItem", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.ShoppingCartItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -400,9 +399,9 @@ namespace ComputerWebShopSPA.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.Computer", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.Computer", b =>
                 {
-                    b.HasOne("ComputerWebShop.Models.Data.Category", "Category")
+                    b.HasOne("ComputerWebShopSPA.Models.Data.Category", "Category")
                         .WithMany("ComputerList")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -411,15 +410,15 @@ namespace ComputerWebShopSPA.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.OrderDetail", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.OrderDetail", b =>
                 {
-                    b.HasOne("ComputerWebShop.Models.Data.Computer", "Computer")
+                    b.HasOne("ComputerWebShopSPA.Models.Data.Computer", "Computer")
                         .WithMany()
                         .HasForeignKey("ComputerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ComputerWebShop.Models.Data.Order", "Order")
+                    b.HasOne("ComputerWebShopSPA.Models.Data.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -430,9 +429,9 @@ namespace ComputerWebShopSPA.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.ShoppingCartItem", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.ShoppingCartItem", b =>
                 {
-                    b.HasOne("ComputerWebShop.Models.Data.Computer", "Computer")
+                    b.HasOne("ComputerWebShopSPA.Models.Data.Computer", "Computer")
                         .WithMany()
                         .HasForeignKey("ComputerId");
 
@@ -450,7 +449,7 @@ namespace ComputerWebShopSPA.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ComputerWebShop.Models.Data.IdentityAppUser", null)
+                    b.HasOne("ComputerWebShopSPA.Models.Data.IdentityAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -459,7 +458,7 @@ namespace ComputerWebShopSPA.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ComputerWebShop.Models.Data.IdentityAppUser", null)
+                    b.HasOne("ComputerWebShopSPA.Models.Data.IdentityAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -474,7 +473,7 @@ namespace ComputerWebShopSPA.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ComputerWebShop.Models.Data.IdentityAppUser", null)
+                    b.HasOne("ComputerWebShopSPA.Models.Data.IdentityAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -483,19 +482,19 @@ namespace ComputerWebShopSPA.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ComputerWebShop.Models.Data.IdentityAppUser", null)
+                    b.HasOne("ComputerWebShopSPA.Models.Data.IdentityAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.Category", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.Category", b =>
                 {
                     b.Navigation("ComputerList");
                 });
 
-            modelBuilder.Entity("ComputerWebShop.Models.Data.Order", b =>
+            modelBuilder.Entity("ComputerWebShopSPA.Models.Data.Order", b =>
                 {
                     b.Navigation("OrderDetails");
                 });

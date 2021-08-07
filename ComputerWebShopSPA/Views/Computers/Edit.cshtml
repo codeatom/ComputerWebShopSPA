@@ -30,9 +30,9 @@
         <option value="" disabled selected>Select a Category</option>
         @foreach (Category item in Model.CategoryList)
         {
-<option value="@item.Id">@item.Name</option>}
+        <option value="@item.Id">@item.Name</option>}
     </select>
-    <span asp-validation-for="@Model.CreateComputer.IsInStock"></span>
+    <span asp-validation-for="@Model.CreateComputer.IsInStock"></span><br /><br />
 
     <label asp-for="@Model.CreateComputer.ComputerSpecs" style="margin-left: 0px">ComputerSpecs</label>
     <textarea asp-for="@Model.CreateComputer.ComputerSpecs"></textarea>

@@ -19,14 +19,13 @@ namespace ComputerWebShopSPA.Models.Data
         public string Description { get; set; }
 
         [Required]
-        public string ComputerSpecs { get; set; }
-
-        [Required]
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
+
+        public string ComputerSpecs { get; set; }
 
         public Category Category { get; set; }
 

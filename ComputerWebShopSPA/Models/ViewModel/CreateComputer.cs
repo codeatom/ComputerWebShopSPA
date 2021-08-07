@@ -16,13 +16,12 @@ namespace ComputerWebShopSPA.Models.ViewModel
         public string Description { get; set; }
 
         [Required]
-        public string ComputerSpecs { get; set; }
-
-        [Required]
         public decimal Price { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
+
+        public string ComputerSpecs { get; set; }
 
         public Category Category { get; set; }
 
