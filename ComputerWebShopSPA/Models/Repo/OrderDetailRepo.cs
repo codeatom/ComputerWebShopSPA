@@ -1,5 +1,6 @@
 ﻿using ComputerWebShopSPA.Database;
 using ComputerWebShopSPA.Models.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,14 @@ namespace ComputerWebShopSPA.Models.Repo
             }
 
             return orderDetail;
+        }
+
+        public List<OrderDetail> Read(int orderId)
+        {
+            return _appDbContext.OrderDetails
+                .Where(o => o.OrderId == orderId)
+                .Include(o => o.Computer)
+                .ToList();
         }
     }
 }

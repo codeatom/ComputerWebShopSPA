@@ -9,5 +9,7 @@ namespace ComputerWebShopSPA.Models.Repo
     public interface IOrderDetailRepo
     {
         public OrderDetail Create(OrderDetail orderDetail);
+
+        public List<OrderDetail> Read(int orderId);
     }
 }

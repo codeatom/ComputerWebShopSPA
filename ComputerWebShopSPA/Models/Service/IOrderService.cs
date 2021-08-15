@@ -9,6 +9,6 @@ namespace ComputerWebShopSPA.Models.Service
 {
     public interface IOrderService
     {
-        void Add(CreateOrder createOrder);
+        int Add(CreateOrder createOrder);
     }
 }

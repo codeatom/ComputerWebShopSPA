@@ -13,5 +13,10 @@ namespace ComputerWebShopSPA.Models.ViewModel
         public List<Computer> ComputerList { get; set; }
 
         public string CategoryName { get; set; }
+
+        public ComputerViewModel()
+        {
+            ComputerList = new List<Computer>();
+        }
     }
 }

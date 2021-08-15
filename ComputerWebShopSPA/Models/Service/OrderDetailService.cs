@@ -1,5 +1,6 @@
 ﻿using ComputerWebShopSPA.Models.Data;
 using ComputerWebShopSPA.Models.Repo;
+using ComputerWebShopSPA.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,14 @@ namespace ComputerWebShopSPA.Models.Service
             _orderDetailRepo.Create(orderDetail);
 
             return orderDetail;
+        }
+
+        public OrderDetailViewModel All(int orderId)
+        {
+            OrderDetailViewModel orderDetailViewModel = new OrderDetailViewModel();
+            orderDetailViewModel.OrderDetailList = _orderDetailRepo.Read(orderId);
+
+            return orderDetailViewModel;
         }
     }
 }

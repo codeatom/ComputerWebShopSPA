@@ -11,5 +11,7 @@ namespace ComputerWebShopSPA.Models.Data
         public List<int> ComputerIdList { get; set; }
 
         public CreateOrder CreateOrder { get; set; }
+
+        public int OrderId { get; set; }
     }
 }

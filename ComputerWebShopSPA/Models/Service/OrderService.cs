@@ -21,7 +21,7 @@ namespace ComputerWebShopSPA.Models.Service
             _orderDetailService = orderDetailService;
         }
 
-        public void Add(CreateOrder createOrder)
+        public int Add(CreateOrder createOrder)
         {
             Order order = new Order();
 
@@ -52,6 +52,9 @@ namespace ComputerWebShopSPA.Models.Service
 
                 _orderDetailService.Add(orderDetail);
             }
+
+            return order.OrderId;
         }
+
     }
 }
